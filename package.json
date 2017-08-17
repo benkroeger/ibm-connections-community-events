@@ -1,0 +1,48 @@
+{
+  "name": "ibm-connections-community-events",
+  "version": "0.0.1",
+  "description": "An implementation for the IBM Connections Community Events API",
+  "license": "none",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Andreja Jevtic",
+    "email": "andrajevtic@gmail.com"
+  },
+  "keywords": [
+    "ibm-connections-community-events",
+    "ibm",
+    "community-events",
+    "service"
+  ],
+  "repository": "bitbucket:gisag/ibm-connections-community-events",
+  "scripts": {
+    "coverage": "nyc npm run test && nyc report --reporter=html",
+    "lint": "eslint .",
+    "lint-fix": "npm run lint --fix",
+    "test": "ava --verbose"
+  },
+  "dependencies": {
+    "async": "2.5.0",
+    "lodash": "4.17.4",
+    "oniyi-http-client": "1.1.1",
+    "oniyi-http-plugin-credentials": "0.2.1",
+    "oniyi-http-plugin-format-url-template": "1.0.2",
+    "oniyi-logger": "1.0.0",
+    "oniyi-utils": "1.1.1",
+    "oniyi-utils-xml": "1.1.0"
+  },
+  "devDependencies": {
+    "ava": "0.22.0",
+    "babel-eslint": "7.2.3",
+    "dotenv": "4.0.0",
+    "eslint": "4.4.1",
+    "eslint-config-oniyi": "4.5.0",
+    "eslint-plugin-ava": "4.2.1",
+    "nock": "9.0.14",
+    "nyc": "11.1.0"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ]
+}
