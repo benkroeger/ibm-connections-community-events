@@ -69,15 +69,18 @@ test.cb('validate retrieving community events => calendarUuid & startDate provid
 
   service.events(query, {}, (err, events) => {
     t.ifError(err);
+    t.true(_.isArray(events));
     events.forEach((event, i) => {
       firstLvlProps.forEach(prop => t.true(prop in event, `[${prop}] should be a member of events[${i}]`));
-      const { author, contributor, links, source, tags, allday, published, updated } = event;
+      const { author, contributor, links, source, tags, allday, published, updated, startDate, endDate } = event;
 
       [author, contributor, links, source].forEach(elem => t.true(_.isPlainObject(elem)));
       t.true(_.isArray(tags));
       t.true(_.isBoolean(allday));
-      t.true(_.isFinite(published));
-      t.true(_.isFinite(updated));
+      t.true(_.isDate(new Date(published)));
+      t.true(_.isDate(new Date(updated)));
+      t.true(_.isDate(new Date(startDate)));
+      t.true(_.isDate(new Date(endDate)));
 
       userProps.forEach(prop => t.true(prop in author, `[${prop}] should be a member of event.author`));
       userProps.forEach(prop => t.true(prop in contributor, `[${prop}] should be a member of event.contributor`));
@@ -96,6 +99,8 @@ test.cb('validate retrieving events attendees => eventInstUuid provided', (t) =>
 
   service.attendees(query, {}, (err, attendees) => {
     t.ifError(err);
+    t.true(_.isArray(attendees));
+
     attendees.forEach((attendee, i) => {
       firstLvlProps.forEach(prop => t.true(prop in attendee, `[${prop}] should be a member of attendees[${i}]`));
       const { author, links, source } = attendee;

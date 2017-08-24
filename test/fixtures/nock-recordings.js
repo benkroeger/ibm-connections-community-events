@@ -5,45 +5,6 @@ const nock = require('nock');
 /* eslint-disable */
 
 nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
-  .get('/communities/calendar/atom/calendar/event/attendees')
-  .query({"type":"attend","eventInstUuid":"2c688d78-5a78-42b2-a2dd-bd5f5493fdc2"})
-  .reply(302, "", [ 'Content-Language',
-  'en-US',
-  'Content-Length',
-  '0',
-  'Content-Type',
-  'text/plain; charset=UTF-8',
-  'Location',
-  'https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?type=attend&eventInstUuid=2c688d78-5a78-42b2-a2dd-bd5f5493fdc2&lang=en_us',
-  'p3p',
-  'CP="NON CUR OTPi OUR NOR UNI"',
-  'x-frame-options',
-  'SAMEORIGIN',
-  'Cache-Control',
-  'no-cache="set-cookie, set-cookie2", private, must-revalidate',
-  'Expires',
-  'Thu, 01 Dec 1994 16:00:00 GMT',
-  'x-lconn-auth',
-  'true',
-  'Strict-Transport-Security',
-  'max-age=31536000; includeSubDomains; preload',
-  'X-Padding',
-  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-  'X-Content-Type-Options',
-  'nosniff',
-  'Date',
-  'Thu, 17 Aug 2017 16:53:30 GMT',
-  'Connection',
-  'close',
-  'Set-Cookie',
-  'LtpaToken2=IiskD2AIVVk0yyWhbjHmC4/UK+9K1VCQ8ne+LbcdVU3n0JFhyVMmvDn8JLGjXrrOUDunfevOazhGP6W2jan1FdybOXYQKl3QsdpuOjksIdWJbo0V7LFdIjCN565Hf6yQI1RhNs0b0D7jCKjzHRhEVzhjyEI4VDcM+gQeYn/VdI8Puymw40wsJIMaaRLTlZyh7jfdFlWxp+S0oGdDu23Tmn3ODwBV8BOk6ADYVZW6F+Iz7q9iJ0ZXV6AwtNUswczAMFvF04fd4QHferuULfhwqIM/w6zQaadm0U5OL+YxDqVkjQGH1ih+BXADcBBb6kVS7zHE8z04+o9SZfs2aoCIjM1J1Hwq8z0pwNq6G75aujbg4m69iTvdtywjWDnns0xUIiARYooNN4x4235b1AN9Lq5NG1aGcYF2usXhF+wSLIrHyB9lf83QPm+DWcabfxY9tACHC4L/sipon2KRMGOUDu0XbUGqko6ZtWrnsxMYKw5eAhOIhCTKOi0b9Gzpygz55dEFLlzFMl17PZ8wSJkJ3eqiFt3fvxXo34CSZijPJHkAWf/MnRr6O/gVvK5rw1TEFWgqGLEPytwE+TvPyEkgPOuPjRfJ8fdS6k3e7DNbrsvRz4Io/IJMsFlAnwzcXjN7NknoalzsMcjbY71ES0vYg8GJa6J3iLtDLX9U0zDUvItmrSf5bcRGlRUHePVUdcDLAm9OMfLiflxioe5/ok/wnhZHrjm5HdQEDdfUVD+2iAkh1ittn+Jksw1jWQ1zLHpA; Path=/; HttpOnly; Secure',
-  'Set-Cookie',
-  'entitlements=NTEzMjlkMWZlMTRlNDM2YjBmYjc2ZjcwZjNiNmU1MjlmODQzOWYwNA==-YmhfYWN0aXZpdGllcyxiaF9hY3Rpdml0aWVzX19hbGxvd19vdmVyYWdlLGJoX2NoYXQsYmhfY29tbW9ucyxiaF9jb21tdW5pdGllcyxiaF9jb250YWN0cyxiaF9kYXNoYm9hcmQsYmhfZG9jcyxiaF9mZWVkYmFjayxiaF9maWxlcixiaF9maWxlcl9fYWxsb3dfb3ZlcmFnZSxiaF9mb3JtcyxiaF9mb3J1bXMsYmhfbWVldGluZ3MsYmhfd2hhdHNfbmV3LGJzc19hZG1pbixic3NfaGFyZGJ1bmRsZV9fY2hpbGRfcGFydG51bWJlcixic3NfaGFyZGJ1bmRsZV9fcGFyZW50X3BhcnRudW1iZXIsYnNzX2ludml0ZV9ndWVzdCxic3NfdWlfX2lzX2FjY2Vzc29yeV9vZmZlcmluZyxic3NfdWlfX2lzX2J1bmRsZV9vZmZlcmluZyxic3NfdWlfX2lzX21haWxfb2ZmZXJpbmcsYnNzdWlfX2VuYWJsZV9zdWJzY3JpcHRpb24sYnNzdWlfX2lzX2RvbW1haWwsZ3JvdXBfb2ZmZXJpbmdfaXNfcHJpbWFyeSxoYXNfYWNjZXNzb3J5X3N1YnNjcmlwdGlvbixsY19hY3Rpdml0aWVzLGxjX25ld3Msc2FtZXRpbWVfbWVldGluZyxzYW1ldGltZV9tZWV0aW5nX19wY19hdWRpbyw=-MjMxNzY1NDY=; Path=/; Secure',
-  'Set-Cookie',
-  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!nYONvCOc9YKzo7ePWVxz8esqaC9qMfwAifeWcr3Rfrh4VCa7oeWDt1Ip2psItp4IP0TDR0fr89q/KQ==; path=/; Secure' ]);
-
-
-nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   .get('/communities/calendar/atom/calendar/event')
   .query({"calendarUuid":"5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250","startDate":"2017-01-04T20%3A32%3A31.171Z"})
   .reply(302, "", [ 'Content-Language',
@@ -67,25 +28,64 @@ nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   'Strict-Transport-Security',
   'max-age=31536000; includeSubDomains; preload',
   'X-Padding',
-  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
   'X-Content-Type-Options',
   'nosniff',
   'Date',
-  'Thu, 17 Aug 2017 16:53:30 GMT',
+  'Thu, 24 Aug 2017 13:04:52 GMT',
   'Connection',
   'close',
   'Set-Cookie',
-  'LtpaToken2=IiskD2AIVVk0yyWhbjHmC4/UK+9K1VCQ8ne+LbcdVU3n0JFhyVMmvDn8JLGjXrrOUDunfevOazhGP6W2jan1FdybOXYQKl3QsdpuOjksIdXzVkTdJvaIvCVlI92e2xk6VOWUpTP0A3EcM4W1KIIgkY8X/2zmkEG2+7RJD3RbPQ+NKxzxjHbHKLnAHlPc0sURDiZXHLAdLOpO2YdSk4N4fFrtZKRqh930FVh3Bvn2IyM9zvG87rezJjF87z7iWLJCIepqGqtoLPAXcZZOdmzlZ7Flu1KQZvtdyBjn14GtoErbWKf+fwy0QtK9cn1RqBnzJ4ZVFzMEKxPQzXT1+vpKPC+qF7ad1vBomWVoO5AEdfCq155VPUcVqkd6DMEUXuvOXfax2d6ckCxHSfstG/5GeE/WyTSYDkYsKZTZ6Tq3MNvmto0NEdlPZLK5gaKzNJzTctg07mGq8hMKvuKZdmSGvee3D7VMi0G2WYLYHRDDmqbRvhDvzmbcAVX/SUkcEUotGf3phmRkTZZHNJx6utf5flVqYg1WCW+93zmVV5rBi/32M8740oa9pAD/JmO0V1Q+dH77HGqc9dn7aFaCp1u3PuzhhJ/MoYKM+SZHLxYO8GUgw6aPEUI2zlecbm2CKU4lyn9FsRc6v8z5rsFTq9CdjFoUTvNkMwX4sCXRtYxA6EtnyFQ7sWMIQ/jjUABTFMg2ZaQRcSOMs/3dj3JJNkaLxqhVE05haNbN10TcQyC55IoYhgL/eIIt4gH4EXFd6XMD; Path=/; HttpOnly; Secure',
+  'LtpaToken2=sBMMctbMkONaeswKMZsMzxIVmLGTkd9dzeo6zEs60/JbPVEwh+qaV9jt385gdsY1HqjqClIrYVjxKbrKt90C3a5FvnhOP4iR+W89LBBYg6pihi9FUPKyoqQtsSMwF0/v1kiRIjP97gVfNAgAvaurFvu5PE5LQxQiGYgnAZiIinWDmiFrp4wfj8/DO6JccdLBdTu8F1fmAxx7hNV/HxsxK6utqunYHVQKKPRLLXkOmFSTG+izuNqNCceca8bKFnXXFr9zUuhiRiXril+AyPa6nUlJOFf1QZBYeKv8F/xGGwtG/9k38vZqUuDNjUWuV0LepKYvSXStSGfSdpxkSJ0KvO4kfxbY3fX80Wm/a2aXVt1v4/hmIuygj8ug91HflWF/nY4hrlk5b7XBPcIeP5Jje4CGHWI7Y7xpx4maNmkFsyNtzYob9d7Hq9RJgUfl0UgDVtNdVv9sTuTEoyoQ+XQcRGYHFImlOwgqbmBcHBdRci1kSzQ/2VU8zDaFppjNGApm0bOe8ReSk+cxIvjcaw6PoLceEWH4AJhCC8rgO5Ts3Z8TWXI63VBQXcB8HmRxESmwuJyGjgVsQQapmya5/ZNQIyJRLzdYF725pP+hd91zczkeQ/6VYC5uZSWliFFNZ9yJuKBCXuJ/xb+MkCQCNzv8QkMh5ExLj1QATEhxi1LW2xQZ52QqPH4SWO6lZNn3F4/ZpffiHjy/1eRz1rmnJg0091+AXUPkiGHxwThM4lbWaIsS4pY0jk0zrSqW6gB/+aGB; Path=/; HttpOnly; Secure',
   'Set-Cookie',
   'entitlements=NTEzMjlkMWZlMTRlNDM2YjBmYjc2ZjcwZjNiNmU1MjlmODQzOWYwNA==-YmhfYWN0aXZpdGllcyxiaF9hY3Rpdml0aWVzX19hbGxvd19vdmVyYWdlLGJoX2NoYXQsYmhfY29tbW9ucyxiaF9jb21tdW5pdGllcyxiaF9jb250YWN0cyxiaF9kYXNoYm9hcmQsYmhfZG9jcyxiaF9mZWVkYmFjayxiaF9maWxlcixiaF9maWxlcl9fYWxsb3dfb3ZlcmFnZSxiaF9mb3JtcyxiaF9mb3J1bXMsYmhfbWVldGluZ3MsYmhfd2hhdHNfbmV3LGJzc19hZG1pbixic3NfaGFyZGJ1bmRsZV9fY2hpbGRfcGFydG51bWJlcixic3NfaGFyZGJ1bmRsZV9fcGFyZW50X3BhcnRudW1iZXIsYnNzX2ludml0ZV9ndWVzdCxic3NfdWlfX2lzX2FjY2Vzc29yeV9vZmZlcmluZyxic3NfdWlfX2lzX2J1bmRsZV9vZmZlcmluZyxic3NfdWlfX2lzX21haWxfb2ZmZXJpbmcsYnNzdWlfX2VuYWJsZV9zdWJzY3JpcHRpb24sYnNzdWlfX2lzX2RvbW1haWwsZ3JvdXBfb2ZmZXJpbmdfaXNfcHJpbWFyeSxoYXNfYWNjZXNzb3J5X3N1YnNjcmlwdGlvbixsY19hY3Rpdml0aWVzLGxjX25ld3Msc2FtZXRpbWVfbWVldGluZyxzYW1ldGltZV9tZWV0aW5nX19wY19hdWRpbyw=-MjMxNzY1NDY=; Path=/; Secure',
   'Set-Cookie',
-  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!z5JALHTvO5DCTZWPWVxz8esqaC9qMSfYfG0CTeMezSO9eTns77TTs3vyH915I0zSKyU87SLKbaQ3xQ==; path=/; Secure' ]);
+  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!LgxcmCkqV9rC0AyPWVxz8esqaC9qMYlAHqvI8mvHMp3PPVJQ96YMCzm/us7YmwcajXPP+zeEcI1XwQ==; path=/; Secure' ]);
+
+
+nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
+  .get('/communities/calendar/atom/calendar/event/attendees')
+  .query({"type":"attend","eventInstUuid":"2c688d78-5a78-42b2-a2dd-bd5f5493fdc2"})
+  .reply(302, "", [ 'Content-Language',
+  'en-US',
+  'Content-Length',
+  '0',
+  'Content-Type',
+  'text/plain; charset=UTF-8',
+  'Location',
+  'https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?type=attend&eventInstUuid=2c688d78-5a78-42b2-a2dd-bd5f5493fdc2&lang=en_us',
+  'p3p',
+  'CP="NON CUR OTPi OUR NOR UNI"',
+  'x-frame-options',
+  'SAMEORIGIN',
+  'Cache-Control',
+  'no-cache="set-cookie, set-cookie2", private, must-revalidate',
+  'Expires',
+  'Thu, 01 Dec 1994 16:00:00 GMT',
+  'x-lconn-auth',
+  'true',
+  'Strict-Transport-Security',
+  'max-age=31536000; includeSubDomains; preload',
+  'X-Padding',
+  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+  'X-Content-Type-Options',
+  'nosniff',
+  'Date',
+  'Thu, 24 Aug 2017 13:04:52 GMT',
+  'Connection',
+  'close',
+  'Set-Cookie',
+  'LtpaToken2=sBMMctbMkONaeswKMZsMzxIVmLGTkd9dzeo6zEs60/JbPVEwh+qaV9jt385gdsY1HqjqClIrYVjxKbrKt90C3a5FvnhOP4iR+W89LBBYg6pihi9FUPKyoqQtsSMwF0/v1kiRIjP97gVfNAgAvaurFvu5PE5LQxQiGYgnAZiIinWDmiFrp4wfj8/DO6JccdLBdTu8F1fmAxx7hNV/HxsxK6utqunYHVQKKPRLLXkOmFSTG+izuNqNCceca8bKFnXXFr9zUuhiRiXril+AyPa6nUlJOFf1QZBYeKv8F/xGGwtG/9k38vZqUuDNjUWuV0LepKYvSXStSGfSdpxkSJ0KvO4kfxbY3fX80Wm/a2aXVt1v4/hmIuygj8ug91HflWF/nY4hrlk5b7XBPcIeP5Jje4CGHWI7Y7xpx4maNmkFsyNtzYob9d7Hq9RJgUfl0UgDVtNdVv9sTuTEoyoQ+XQcRGYHFImlOwgqbmBcHBdRci1kSzQ/2VU8zDaFppjNGApm0bOe8ReSk+cxIvjcaw6PoLceEWH4AJhCC8rgO5Ts3Z8TWXI63VBQXcB8HmRxESmwuJyGjgVsQQapmya5/ZNQIyJRLzdYF725pP+hd91zczkeQ/6VYC5uZSWliFFNZ9yJuKBCXuJ/xb+MkCQCNzv8QkMh5ExLj1QATEhxi1LW2xQZ52QqPH4SWO6lZNn3F4/ZpffiHjy/1eRz1rmnJg0091+AXUPkiGHxwThM4lbWaIsS4pY0jk0zrSqW6gB/+aGB; Path=/; HttpOnly; Secure',
+  'Set-Cookie',
+  'entitlements=NTEzMjlkMWZlMTRlNDM2YjBmYjc2ZjcwZjNiNmU1MjlmODQzOWYwNA==-YmhfYWN0aXZpdGllcyxiaF9hY3Rpdml0aWVzX19hbGxvd19vdmVyYWdlLGJoX2NoYXQsYmhfY29tbW9ucyxiaF9jb21tdW5pdGllcyxiaF9jb250YWN0cyxiaF9kYXNoYm9hcmQsYmhfZG9jcyxiaF9mZWVkYmFjayxiaF9maWxlcixiaF9maWxlcl9fYWxsb3dfb3ZlcmFnZSxiaF9mb3JtcyxiaF9mb3J1bXMsYmhfbWVldGluZ3MsYmhfd2hhdHNfbmV3LGJzc19hZG1pbixic3NfaGFyZGJ1bmRsZV9fY2hpbGRfcGFydG51bWJlcixic3NfaGFyZGJ1bmRsZV9fcGFyZW50X3BhcnRudW1iZXIsYnNzX2ludml0ZV9ndWVzdCxic3NfdWlfX2lzX2FjY2Vzc29yeV9vZmZlcmluZyxic3NfdWlfX2lzX2J1bmRsZV9vZmZlcmluZyxic3NfdWlfX2lzX21haWxfb2ZmZXJpbmcsYnNzdWlfX2VuYWJsZV9zdWJzY3JpcHRpb24sYnNzdWlfX2lzX2RvbW1haWwsZ3JvdXBfb2ZmZXJpbmdfaXNfcHJpbWFyeSxoYXNfYWNjZXNzb3J5X3N1YnNjcmlwdGlvbixsY19hY3Rpdml0aWVzLGxjX25ld3Msc2FtZXRpbWVfbWVldGluZyxzYW1ldGltZV9tZWV0aW5nX19wY19hdWRpbyw=-MjMxNzY1NDY=; Path=/; Secure',
+  'Set-Cookie',
+  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!OIU40A6U4m0GpauPWVxz8esqaC9qMYTY7doelHIjyoJLs1XeQpnBhtCrwgtiNStSIWL5IRsu6tznWg==; path=/; Secure' ]);
 
 
 nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   .get('/communities/calendar/atom/calendar/event/attendees')
   .query({"type":"attend","eventInstUuid":"2c688d78-5a78-42b2-a2dd-bd5f5493fdc2","lang":"en_us"})
-  .reply(200, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<feed xmlns=\"http://www.w3.org/2005/Atom\" xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:thr=\"http://purl.org/syndication/thread/1.0\">\n  <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendees:2c688d78-5a78-42b2-a2dd-bd5f5493fdc2</id>\n  <generator xmlns:atom=\"http://www.w3.org/2005/Atom\" uri=\"http://www.ibm.com/xmlns/prod/sn\" version=\"6.0.0.0\">IBM Connections - Community Events</generator>\n  <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Event Attendees - Sales Show Repeating</title>\n  <updated xmlns:atom=\"http://www.w3.org/2005/Atom\">2017-08-17T16:53:31.024Z</updated>\n  <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?ps=10&amp;page=1&amp;lang=en_us&amp;type=attend\" rel=\"self\" type=\"application/atom+xml\"></link>\n  <opensearch:totalResults xmlns:opensearch=\"http://a9.com/-/spec/opensearch/1.1/\">1</opensearch:totalResults>\n  <snx:communityUuid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250</snx:communityUuid>\n  <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/service/atom/community/instance?communityUuid=5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250\" rel=\"http://www.ibm.com/xmlns/prod/sn/container\" type=\"application/atom+xml\"></link>\n  <entry xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" xmlns:thr=\"http://purl.org/syndication/thread/1.0\">\n    <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendee:09706b28-fa5c-466c-93cd-43a61169bae9</id>\n    <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Wolfgang Raestrup</title>\n    <author xmlns:atom=\"http://www.w3.org/2005/Atom\">\n      <snx:userid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">22332390</snx:userid>\n      <name xmlns:atom=\"http://www.w3.org/2005/Atom\">Wolfgang Raestrup</name>\n      <snx:userState xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">active</snx:userState>\n      <snx:isExternal xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">false</snx:isExternal>\n    </author>\n    <snx:role xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" component=\"http://www.ibm.com/xmlns/prod/sn/communities\">owner</snx:role>\n    <category xmlns:atom=\"http://www.w3.org/2005/Atom\" scheme=\"http://www.ibm.com/xmlns/prod/sn/type\" term=\"attendee\"></category>\n    <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?type=attend&amp;lang=en_us&amp;attendeeUuid=09706b28-fa5c-466c-93cd-43a61169bae9\" rel=\"self\" type=\"application/atom+xml\"></link>\n    <source xmlns:atom=\"http://www.w3.org/2005/Atom\">\n      <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendees:2c688d78-5a78-42b2-a2dd-bd5f5493fdc2</id>\n      <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Event Attendees - Sales Show Repeating</title>\n      <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?eventInstUuid=2c688d78-5a78-42b2-a2dd-bd5f5493fdc2&amp;type=attend&amp;lang=en_us\" rel=\"self\" type=\"application/atom+xml\"></link>\n    </source>\n    <snx:communityUuid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250</snx:communityUuid>\n    <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/service/atom/community/instance?communityUuid=5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250\" rel=\"http://www.ibm.com/xmlns/prod/sn/container\" type=\"application/atom+xml\"></link>\n  </entry>\n</feed>", [ 'Content-Language',
+  .reply(200, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<feed xmlns=\"http://www.w3.org/2005/Atom\" xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:thr=\"http://purl.org/syndication/thread/1.0\">\n  <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendees:2c688d78-5a78-42b2-a2dd-bd5f5493fdc2</id>\n  <generator xmlns:atom=\"http://www.w3.org/2005/Atom\" uri=\"http://www.ibm.com/xmlns/prod/sn\" version=\"6.0.0.0\">IBM Connections - Community Events</generator>\n  <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Event Attendees - Sales Show Repeating</title>\n  <updated xmlns:atom=\"http://www.w3.org/2005/Atom\">2017-08-24T13:04:52.546Z</updated>\n  <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?ps=10&amp;page=1&amp;lang=en_us&amp;type=attend\" rel=\"self\" type=\"application/atom+xml\"></link>\n  <opensearch:totalResults xmlns:opensearch=\"http://a9.com/-/spec/opensearch/1.1/\">1</opensearch:totalResults>\n  <snx:communityUuid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250</snx:communityUuid>\n  <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/service/atom/community/instance?communityUuid=5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250\" rel=\"http://www.ibm.com/xmlns/prod/sn/container\" type=\"application/atom+xml\"></link>\n  <entry xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" xmlns:thr=\"http://purl.org/syndication/thread/1.0\">\n    <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendee:09706b28-fa5c-466c-93cd-43a61169bae9</id>\n    <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Wolfgang Raestrup</title>\n    <author xmlns:atom=\"http://www.w3.org/2005/Atom\">\n      <snx:userid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">22332390</snx:userid>\n      <name xmlns:atom=\"http://www.w3.org/2005/Atom\">Wolfgang Raestrup</name>\n      <snx:userState xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">active</snx:userState>\n      <snx:isExternal xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">false</snx:isExternal>\n    </author>\n    <snx:role xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\" component=\"http://www.ibm.com/xmlns/prod/sn/communities\">owner</snx:role>\n    <category xmlns:atom=\"http://www.w3.org/2005/Atom\" scheme=\"http://www.ibm.com/xmlns/prod/sn/type\" term=\"attendee\"></category>\n    <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?type=attend&amp;lang=en_us&amp;attendeeUuid=09706b28-fa5c-466c-93cd-43a61169bae9\" rel=\"self\" type=\"application/atom+xml\"></link>\n    <source xmlns:atom=\"http://www.w3.org/2005/Atom\">\n      <id xmlns:atom=\"http://www.w3.org/2005/Atom\">urn:lsid:ibm.com:calendar:event:attendees:2c688d78-5a78-42b2-a2dd-bd5f5493fdc2</id>\n      <title xmlns:atom=\"http://www.w3.org/2005/Atom\" type=\"text\">Event Attendees - Sales Show Repeating</title>\n      <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/calendar/atom/calendar/event/attendees?eventInstUuid=2c688d78-5a78-42b2-a2dd-bd5f5493fdc2&amp;type=attend&amp;lang=en_us\" rel=\"self\" type=\"application/atom+xml\"></link>\n    </source>\n    <snx:communityUuid xmlns:snx=\"http://www.ibm.com/xmlns/prod/sn\">5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250</snx:communityUuid>\n    <link xmlns:atom=\"http://www.w3.org/2005/Atom\" href=\"https://apps.na.collabserv.com/communities/service/atom/community/instance?communityUuid=5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250\" rel=\"http://www.ibm.com/xmlns/prod/sn/container\" type=\"application/atom+xml\"></link>\n  </entry>\n</feed>", [ 'Content-Language',
   'en-US',
   'Content-Type',
   'application/atom+xml; charset=UTF-8',
@@ -104,23 +104,23 @@ nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   'Strict-Transport-Security',
   'max-age=31536000; includeSubDomains; preload',
   'X-Padding',
-  'zzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
   'X-Content-Type-Options',
   'nosniff',
   'Date',
-  'Thu, 17 Aug 2017 16:53:31 GMT',
+  'Thu, 24 Aug 2017 13:04:52 GMT',
   'Content-Length',
   '3747',
   'Connection',
   'close',
   'Set-Cookie',
-  'LtpaToken2=IiskD2AIVVk0yyWhbjHmC4/UK+9K1VCQ8ne+LbcdVU3n0JFhyVMmvDn8JLGjXrrOUDunfevOazhGP6W2jan1FdybOXYQKl3QsdpuOjksIdWJbo0V7LFdIjCN565Hf6yQI1RhNs0b0D7jCKjzHRhEVzhjyEI4VDcM+gQeYn/VdI8Puymw40wsJIMaaRLTlZyh7jfdFlWxp+S0oGdDu23Tmn3ODwBV8BOk6ADYVZW6F+Iz7q9iJ0ZXV6AwtNUswczAMFvF04fd4QHferuULfhwqIM/w6zQaadm0U5OL+YxDqVkjQGH1ih+BXADcBBb6kVS7zHE8z04+o9SZfs2aoCIjM1J1Hwq8z0pwNq6G75aujbg4m69iTvdtywjWDnns0xUIiARYooNN4x4235b1AN9Lq5NG1aGcYF2usXhF+wSLIrHyB9lf83QPm+DWcabfxY9tACHC4L/sipon2KRMGOUDu0XbUGqko6ZtWrnsxMYKw5eAhOIhCTKOi0b9Gzpygz55dEFLlzFMl17PZ8wSJkJ3eqiFt3fvxXo34CSZijPJHkAWf/MnRr6O/gVvK5rw1TEFWgqGLEPytwE+TvPyEkgPOuPjRfJ8fdS6k3e7DNbrsvRz4Io/IJMsFlAnwzcXjN7NknoalzsMcjbY71ES0vYg8GJa6J3iLtDLX9U0zDUvItmrSf5bcRGlRUHePVUdcDLAm9OMfLiflxioe5/ok/wnhZHrjm5HdQEDdfUVD+2iAkh1ittn+Jksw1jWQ1zLHpA; Path=/; HttpOnly; Secure',
+  'LtpaToken2=Vl2GcKUBWG3zZ1GOrRk9e6+D7MeJnFeZsS86HhHjCOhHIW6f0jOO1pMeDzNeH6wNRSjNtUzmY6b+/yVdKa41u6HQPojBt/QdORYC0GGUoTQWtuP/b2ANPxOkzr94erKPovTXp4VaJWvd2xtXCFz1lxXp2UxQfi0wO1I88YPkCiAYOP71GU/7FGZPOCDUuCO93w/m/+TpWHhopmmsbwG7wsMTyD2vzqNwn8UnHo+9l7Bb0ZiTQYfw0Gomkn2XID/JX0MhMJ4/x10WcxJwloD7fstL3l3qoESni2EwpZ2IS3lpHYi5MrgR+5EGi7aCD0+hfy+KsijidVLRUV0pg6sDTANQJEzOX+Y7wXArv61VPFQbp7H1e2w13rNyWy/jHaujooHu7t3htyqcbEQgoYHO9cdgfTNFQqZirRIWyznj+mmrIbDE3mzgXLb0BUMdv2rl/vFV4XR1rNoD9K82/y/F2yrh4ZPF0K4+RSk5HEAofDE22AZrXbd8AEVe/5gJQhvZJqZiO1qvSEPTgL0BIFGol+nJEUx1CLbMpEleFC2sGiBmtF2eAmMUn2hM62o/P7Poow+NpgawDBdLgEEyuy6n+w3OtbVXdyNvCWvxhW2u9IabDpHG5Trvc2U0QtWksZqygIeJwCAk79myA6JhFSJd8x9V3bYydGPlyp+YhFiuNsExd9zhDFMB5T/TThGk1aViJ5Axekh6rDtPHg2Zyq3qX3YDiR5TpTLo9ZHRQSK+yfYkhi3hf2hnKorlFTl2Mqji; Path=/; HttpOnly; Secure',
   'Set-Cookie',
   'entitlements=NTEzMjlkMWZlMTRlNDM2YjBmYjc2ZjcwZjNiNmU1MjlmODQzOWYwNA==-YmhfYWN0aXZpdGllcyxiaF9hY3Rpdml0aWVzX19hbGxvd19vdmVyYWdlLGJoX2NoYXQsYmhfY29tbW9ucyxiaF9jb21tdW5pdGllcyxiaF9jb250YWN0cyxiaF9kYXNoYm9hcmQsYmhfZG9jcyxiaF9mZWVkYmFjayxiaF9maWxlcixiaF9maWxlcl9fYWxsb3dfb3ZlcmFnZSxiaF9mb3JtcyxiaF9mb3J1bXMsYmhfbWVldGluZ3MsYmhfd2hhdHNfbmV3LGJzc19hZG1pbixic3NfaGFyZGJ1bmRsZV9fY2hpbGRfcGFydG51bWJlcixic3NfaGFyZGJ1bmRsZV9fcGFyZW50X3BhcnRudW1iZXIsYnNzX2ludml0ZV9ndWVzdCxic3NfdWlfX2lzX2FjY2Vzc29yeV9vZmZlcmluZyxic3NfdWlfX2lzX2J1bmRsZV9vZmZlcmluZyxic3NfdWlfX2lzX21haWxfb2ZmZXJpbmcsYnNzdWlfX2VuYWJsZV9zdWJzY3JpcHRpb24sYnNzdWlfX2lzX2RvbW1haWwsZ3JvdXBfb2ZmZXJpbmdfaXNfcHJpbWFyeSxoYXNfYWNjZXNzb3J5X3N1YnNjcmlwdGlvbixsY19hY3Rpdml0aWVzLGxjX25ld3Msc2FtZXRpbWVfbWVldGluZyxzYW1ldGltZV9tZWV0aW5nX19wY19hdWRpbyw=-MjMxNzY1NDY=; Path=/; Secure',
   'Set-Cookie',
-  'JSESSIONID=0000pmHxfg6ek4VoNDWLEKxffhB:1bj2k3667; Path=/; HttpOnly; Secure',
+  'JSESSIONID=0000Ubl1-IHvvi47rJSe2EEK_X5:1bj2jqhk0; Path=/; HttpOnly; Secure',
   'Set-Cookie',
-  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!J1YwukYTMMKqdxqPWVxz8esqaC9qMQ9jp94mtRpzqzXMv/IDUokdqVvEcKyVVnlrfCzaWls8cIdLIy8=; path=/; Secure' ]);
+  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!z3GWlY/Y7uGGwuKPWVxz8esqaC9qMUUZwUipDOOOesMkBaOZOTTAjxN155jfvxLazyPDUXOR1an2vQ==; path=/; Secure' ]);
 
 
 nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
@@ -145,11 +145,11 @@ nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   'Strict-Transport-Security',
   'max-age=31536000; includeSubDomains; preload',
   'X-Padding',
-  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+  'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
   'X-Content-Type-Options',
   'nosniff',
   'Date',
-  'Thu, 17 Aug 2017 16:53:31 GMT',
+  'Thu, 24 Aug 2017 13:04:52 GMT',
   'Transfer-Encoding',
   'chunked',
   'Connection',
@@ -157,12 +157,12 @@ nock('https://apps.na.collabserv.com:443', {"encodedQueryParams":true})
   'Connection',
   'Transfer-Encoding',
   'Set-Cookie',
-  'LtpaToken2=F38SHZnYA5GY6vpgUYOYhJyHT8fhufdNp0RUzLjS9PiP3S0fxWh8bd4Euybxrzh5WEgZvB+BfobD2jgCqG4IR5wmF2fXl3nEhxLYlX7Q8I+IfX40e0Ms39/s3HNMJ6WzK2fAH8uVIhfq8kKwMOJpKa++ZFxclAiubqugpOIXa/ug2Od9P1h25z7yNMw7Dwg7+CI3EMi6SA1S27SbPWd9cpYqh8ddNPKdLT99D4/DTRmkLMeTbU40gqo9cdp3ump/2rLZpXDESGA/VdmidIIV2y3mxBwwV/ZGcXebGLsr/rhT03bW+vDK0/t14OXx25rHG/EuujzJhGHJ8jYRetxcyAvaao/AEWPwkTgP5iv/ETnapuKq8HaxobDrpj/nKfia13OfOracQ8S9+6XM8MeRLgH7yQ354KIGcGj0TU0wG5k3a3vaPW75FFcyFvdPhQUg3R1J1D+4TuFU5boEIkLm7UhJke24f4Pr4T65q3l2Sd+eZKD7SuwlkCydgvSJE48OK8MjAazChU9aKhOEo+JnzkXljpl/90FL7fVAj9RLp427u1wrEhkVT/+WL0KWuS1szxyK8cb7E7vnDqjca1o0JVUaQSOHr/Wh28h5QLu02NU5Lg7aXqYfl9tqQuPgU5FWzr/y8FwKSz7amNKXhvph/R/rFtbw4pb+4OML3zH74gEAFCzEDzMA+UaAAJVZv8mcbfDasZkQYMirF7SfDL9k/YyT87BUDkDcRdE67uQj1G/g25uFdvSv65OEtX0YZmMa; Path=/; HttpOnly; Secure',
+  'LtpaToken2=sBMMctbMkONaeswKMZsMzxIVmLGTkd9dzeo6zEs60/JbPVEwh+qaV9jt385gdsY1HqjqClIrYVjxKbrKt90C3a5FvnhOP4iR+W89LBBYg6ohGfKSuS0M5YyHhjDJZo4EjWYN206ldq4cfwI03f/UgjpPkD0hldnVyZs9+pBNg3k/O0apCykAoO9uPPQ2Cfk802AiEbGxbC5xoCGtr1Vk7hLYO0fv1qghX4wsrALSUbfvw3jtmB0IhWk6rGYkstkVbBBM8yiQvI2nHh5G165mA7dlks79rJvsDlhDDNBxeJmxmG4bBQWF9POJXzCFqPptymU/Bx5ddvzQScL6lB6rdzDcpX9mb9Y9zEJeB0o/nL0bdoGikjaemAbvYpJhgJD18ftedtZgfPzvZM0k3OUzh+sWOtuk/qxE/q201y+eVI1khwpz05U5pQmT18nL6X0V0pFm9qEpPRrFAaZB+LgptEY1WH6tyn0mooS7UPaRqOsho4cqnqGlvD1olOcZDqjJN9H/Qb0EhcTEKeUEeFVaDP3n9f8JxWF2S/bsQfNmtnIV2eH/+EL5S7djj0O9FWXyFvxR1wfIS+LHsor4FygL/3HRnrZ2q/+X7mn9Fi4fNPW3ltLTutaeza58rpCg9hU4BZhJbniCwjyul4M5wr8FQPYX54cJRoO+vcvahsoSJ53EM4O4IjhsOGDlg0eTudKDej3DEGWCQZ5r3iup71FIk23nbBbPc1KbiWwCa9H+2Bfzx0dC6qFFNHcf+XdwoqwK; Path=/; HttpOnly; Secure',
   'Set-Cookie',
   'entitlements=NTEzMjlkMWZlMTRlNDM2YjBmYjc2ZjcwZjNiNmU1MjlmODQzOWYwNA==-YmhfYWN0aXZpdGllcyxiaF9hY3Rpdml0aWVzX19hbGxvd19vdmVyYWdlLGJoX2NoYXQsYmhfY29tbW9ucyxiaF9jb21tdW5pdGllcyxiaF9jb250YWN0cyxiaF9kYXNoYm9hcmQsYmhfZG9jcyxiaF9mZWVkYmFjayxiaF9maWxlcixiaF9maWxlcl9fYWxsb3dfb3ZlcmFnZSxiaF9mb3JtcyxiaF9mb3J1bXMsYmhfbWVldGluZ3MsYmhfd2hhdHNfbmV3LGJzc19hZG1pbixic3NfaGFyZGJ1bmRsZV9fY2hpbGRfcGFydG51bWJlcixic3NfaGFyZGJ1bmRsZV9fcGFyZW50X3BhcnRudW1iZXIsYnNzX2ludml0ZV9ndWVzdCxic3NfdWlfX2lzX2FjY2Vzc29yeV9vZmZlcmluZyxic3NfdWlfX2lzX2J1bmRsZV9vZmZlcmluZyxic3NfdWlfX2lzX21haWxfb2ZmZXJpbmcsYnNzdWlfX2VuYWJsZV9zdWJzY3JpcHRpb24sYnNzdWlfX2lzX2RvbW1haWwsZ3JvdXBfb2ZmZXJpbmdfaXNfcHJpbWFyeSxoYXNfYWNjZXNzb3J5X3N1YnNjcmlwdGlvbixsY19hY3Rpdml0aWVzLGxjX25ld3Msc2FtZXRpbWVfbWVldGluZyxzYW1ldGltZV9tZWV0aW5nX19wY19hdWRpbyw=-MjMxNzY1NDY=; Path=/; Secure',
   'Set-Cookie',
-  'JSESSIONID=0000UTFMz-_zCOUSCZH6rzB0qCP:1bj2jhrqq; Path=/; HttpOnly; Secure',
+  'JSESSIONID=0000SHVrRdn7-J6Uvz_H-V1GNTB:1bj2eddi0; Path=/; HttpOnly; Secure',
   'Set-Cookie',
-  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!XlEjkI2B4j4xMRqPWVxz8esqaC9qMav5mR9paW6ImtYDqfG4YSNnFv7M9IWAfN6G4B2oHTC+meRQBA==; path=/; Secure' ]);
+  'BIGipServer~A3Engage~A3Engage-WebSEAL-80=!xQy9v3xpkpXSvwmPWVxz8esqaC9qMRoQ5yUUBJmU128cE70qyx6WWwJBu0WicuHntC3ykTFti0HOOw==; path=/; Secure' ]);
 
 /* eslint-enable */
