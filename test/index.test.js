@@ -34,7 +34,7 @@ test.beforeEach((t) => {
   const sourceProps = ['id', 'title', 'self'];
 
   const eventsProps = {
-    firstLvlProps: [...baseProps, 'published', 'summary', 'eventUuid', 'eventInstUuid',  'repeats', 'location',
+    firstLvlProps: [...baseProps, 'published', 'summary', 'eventUuid', 'eventInstUuid', 'repeats', 'location',
       'parentEvent', 'followed', 'attended', 'tags', 'contributor', 'allday', 'endDate', 'startDate', 'updated'],
     userProps,
     linksProps: ['self', 'alternate', 'parentevent', 'attend', 'follow', 'attendees', 'container'],
