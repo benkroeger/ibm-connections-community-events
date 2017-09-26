@@ -2,7 +2,7 @@
   "name": "ibm-connections-community-events",
   "version": "0.0.1",
   "description": "An implementation for the IBM Connections Community Events API",
-  "license": "none",
+  "license": "MIT",
   "main": "lib/index.js",
   "author": {
     "name": "Andreja Jevtic",
