@@ -4,9 +4,9 @@
   "description": "An implementation for the IBM Connections Community Events API",
   "license": "MIT",
   "main": "lib/index.js",
-  "author": "Andreja Jevtic <andrajevtic@gmail.com>",
+  "author": "Benjamin Kroeger <benjamin.kroeger@gmail.com>",
   "contributors": [
-    "Benjamin Kroeger <benjamin.kroeger@gmail.com>"
+    "Andreja Jevtic <andrajevtic@gmail.com>"
   ],
   "keywords": [
     "ibm-connections-community-events",
