@@ -1,6 +1,6 @@
 #  IBM Connections Community Events Service
 
-> an implementation for the IBM Connections Files API
+> an implementation for the IBM Connections Community Events API
 
 
 ## Install
