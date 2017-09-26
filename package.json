@@ -40,7 +40,6 @@
     "nyc": "^11.1.0"
   },
   "files": [
-    "index.js",
-    "lib"
+    "lib/"
   ]
 }
