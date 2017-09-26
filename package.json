@@ -1,20 +1,23 @@
 {
   "name": "ibm-connections-community-events",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "An implementation for the IBM Connections Community Events API",
   "license": "MIT",
   "main": "lib/index.js",
-  "author": {
-    "name": "Andreja Jevtic",
-    "email": "andrajevtic@gmail.com"
-  },
+  "author": "Benjamin Kroeger <benjamin.kroeger@gmail.com>",
+  "contributors": [
+    "Andreja Jevtic <andrajevtic@gmail.com>"
+  ],
   "keywords": [
     "ibm-connections-community-events",
     "ibm",
     "community-events",
     "service"
   ],
-  "repository": "bitbucket:gisag/ibm-connections-community-events",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benkroeger/ibm-connections-community-events.git"
+  },
   "scripts": {
     "coverage": "nyc npm run test && nyc report --reporter=html",
     "lint": "eslint .",
@@ -41,5 +44,13 @@
   },
   "files": [
     "lib/"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/benkroeger/ibm-connections-community-events/issues"
+  },
+  "homepage": "https://github.com/benkroeger/ibm-connections-community-events#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }

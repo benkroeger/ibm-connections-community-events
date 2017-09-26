@@ -1,4 +1,4 @@
-#  IBM Connections Community Events Service
+#  IBM Connections Community Events
 
 > an implementation for the IBM Connections Community Events API
 
@@ -11,6 +11,9 @@ $ npm install --save ibm-connections-community-events
 
 ## Usage - in progress
 
+## Contributors
+
+Special thanks to [Andreja Jevtic](https://github.com/futin) for contributing the lion's share to version 1.0.0
 
 ## License
 
