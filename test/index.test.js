@@ -10,9 +10,6 @@ import _ from 'lodash';
 import communityEventsService from '../lib';
 import { mock, record, persist } from './fixtures/http-mocking';
 
-// configure dotenv
-require('dotenv').config();
-
 const { unmocked, username, password } = process.env;
 
 test.before(() => (unmocked ? record() : mock()));
