@@ -1,6 +1,6 @@
 {
   "name": "ibm-connections-community-events",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An implementation for the IBM Connections Community Events API",
   "license": "MIT",
   "main": "lib/index.js",
