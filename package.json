@@ -1,6 +1,6 @@
 {
   "name": "ibm-connections-community-events",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An implementation for the IBM Connections Community Events API",
   "license": "MIT",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
   "dependencies": {
     "async": "^2.5.0",
     "lodash": "^4.17.4",
-    "oniyi-http-client": "^1.1.1",
+    "oniyi-http-client": "^1.2.0",
     "oniyi-http-plugin-credentials": "^0.2.1",
     "oniyi-http-plugin-format-url-template": "^1.0.2",
     "oniyi-logger": "^1.0.0",
@@ -36,8 +36,8 @@
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "eslint": "^4.7.2",
-    "eslint-config-oniyi": "^4.5.0",
+    "eslint": "^4.8.0",
+    "eslint-config-oniyi": "^5.0.2",
     "eslint-plugin-ava": "^4.2.2",
     "nock": "^9.0.21",
     "nyc": "^11.2.1"

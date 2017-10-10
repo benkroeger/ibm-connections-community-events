@@ -1,5 +1,3 @@
-'use strict';
-
 // node core modules
 
 // 3rd party modules
@@ -34,8 +32,24 @@ test.beforeEach((t) => {
   const sourceProps = ['id', 'title', 'self'];
 
   const eventsProps = {
-    firstLvlProps: [...baseProps, 'published', 'summary', 'eventUuid', 'eventInstUuid', 'repeats', 'location',
-      'parentEvent', 'followed', 'attended', 'tags', 'contributor', 'allday', 'endDate', 'startDate', 'updated'],
+    firstLvlProps: [
+      ...baseProps,
+      'published',
+      'summary',
+      'eventUuid',
+      'eventInstUuid',
+      'repeats',
+      'location',
+      'parentEvent',
+      'followed',
+      'attended',
+      'tags',
+      'contributor',
+      'allday',
+      'endDate',
+      'startDate',
+      'updated',
+    ],
     userProps,
     linksProps: ['self', 'alternate', 'parentevent', 'attend', 'follow', 'attendees', 'container'],
     sourceProps: [...sourceProps, 'edit'],
@@ -57,7 +71,11 @@ test.beforeEach((t) => {
 });
 
 test.cb('validate retrieving community events => calendarUuid & startDate provided', (t) => {
-  const { service, eventsProps: { firstLvlProps, userProps, linksProps, sourceProps } } = t.context;
+  const {
+    service, eventsProps: {
+      firstLvlProps, userProps, linksProps, sourceProps,
+    },
+  } = t.context;
 
   const query = {
     calendarUuid: '5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250',
@@ -69,7 +87,9 @@ test.cb('validate retrieving community events => calendarUuid & startDate provid
     t.true(_.isArray(events));
     events.forEach((event, i) => {
       firstLvlProps.forEach(prop => t.true(prop in event, `[${prop}] should be a member of events[${i}]`));
-      const { author, contributor, links, source, tags, allday, published, updated, startDate, endDate } = event;
+      const {
+        author, contributor, links, source, tags, allday, published, updated, startDate, endDate,
+      } = event;
 
       [author, contributor, links, source].forEach(elem => t.true(_.isPlainObject(elem)));
       t.true(_.isArray(tags));
@@ -88,7 +108,11 @@ test.cb('validate retrieving community events => calendarUuid & startDate provid
   });
 });
 test.cb('validate retrieving events attendees => eventInstUuid provided', (t) => {
-  const { service, attendeesProps: { firstLvlProps, userProps, linksProps, sourceProps } } = t.context;
+  const {
+    service, attendeesProps: {
+      firstLvlProps, userProps, linksProps, sourceProps,
+    },
+  } = t.context;
 
   const query = {
     eventInstUuid: '2c688d78-5a78-42b2-a2dd-bd5f5493fdc2',
