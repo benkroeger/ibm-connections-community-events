@@ -16,8 +16,6 @@ const persist = () =>
   fs.writeFileSync(
     RECORDINGS_PATH,
     [
-      "'use strict';",
-      '',
       "const nock = require('nock');",
       '',
       '/* eslint-disable */',
