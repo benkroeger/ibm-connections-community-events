@@ -34,6 +34,7 @@ test.beforeEach((t) => {
       ...baseProps,
       'published',
       'summary',
+      'content',
       'eventUuid',
       'eventInstUuid',
       'repeats',
@@ -51,7 +52,9 @@ test.beforeEach((t) => {
     userProps,
     linksProps: ['self', 'alternate', 'parentevent', 'attend', 'follow', 'attendees', 'container'],
     sourceProps: [...sourceProps, 'edit'],
+    recurrenceProps: ['frequency', 'interval', 'until', 'startDate', 'endDate', 'byDay', 'allday'],
   };
+
   const attendeesProps = {
     firstLvlProps: [...baseProps, 'role'],
     userProps,
@@ -85,6 +88,7 @@ test.cb('validate retrieving community events => calendarUuid & startDate provid
   service.events(query, {}, (err, events) => {
     t.ifError(err);
     t.true(_.isArray(events));
+
     events.forEach((event, i) => {
       firstLvlProps.forEach(prop => t.true(prop in event, `[${prop}] should be a member of events[${i}]`));
       const {
@@ -146,6 +150,42 @@ test.cb('validate retrieving community events => calendarUuid & startDate & autT
   });
 });
 
+test.cb('validate retrieving community event instance => eventInstUuid provided', (t) => {
+  const {
+    service, eventsProps: {
+      firstLvlProps, userProps, linksProps, sourceProps, recurrenceProps,
+    },
+  } = t.context;
+
+  const query = {
+    eventInstUuid: 'f9e305c4-2e02-43c6-ba4e-3b65ad9f072c',
+  };
+
+  service.event(query, {}, (err, event) => {
+    t.ifError(err);
+    firstLvlProps.forEach(prop => t.true(prop in event, `[${prop}] should be a member of an event`));
+    const {
+      author, contributor, links, source, tags, allday, published, updated, startDate, endDate, recurrence, content,
+    } = event;
+
+    [author, contributor, links, source, recurrence].forEach(elem => t.true(_.isPlainObject(elem)));
+    t.true(_.isArray(tags));
+    t.true(_.isBoolean(allday));
+    t.true(_.isDate(new Date(published)));
+    t.true(_.isDate(new Date(updated)));
+    t.true(_.isDate(new Date(startDate)));
+    t.true(_.isDate(new Date(endDate)));
+    t.true(_.isString(content) && !_.isEmpty(content));
+
+    recurrenceProps.forEach(prop => t.true(prop in recurrence, `[${prop}] should be a member of event.recurrence`));
+    userProps.forEach(prop => t.true(prop in author, `[${prop}] should be a member of event.author`));
+    userProps.forEach(prop => t.true(prop in contributor, `[${prop}] should be a member of event.contributor`));
+    linksProps.forEach(prop => t.true(prop in links, `[${prop}] should be a member of event.links`));
+    sourceProps.forEach(prop => t.true(prop in source, `[${prop}] should be a member of event.source`));
+    t.end();
+  });
+});
+
 test.cb('validate retrieving events attendees => eventInstUuid provided', (t) => {
   const {
     service, attendeesProps: {
@@ -157,7 +197,7 @@ test.cb('validate retrieving events attendees => eventInstUuid provided', (t) =>
     eventInstUuid: '2c688d78-5a78-42b2-a2dd-bd5f5493fdc2',
   };
 
-  service.attendees(query, {/* options */}, (err, attendees) => {
+  service.attendees(query, { /* options */ }, (err, attendees) => {
     t.ifError(err);
     t.true(_.isArray(attendees));
 
@@ -213,7 +253,7 @@ test.cb('error validation of retrieving community events => calendarUuid not pro
     startDate: '2017-01-04T20:32:31.171Z',
   };
 
-  service.events(query, {/* options */}, (err) => {
+  service.events(query, { /* options */ }, (err) => {
     t.is(err.httpStatus, 404);
     t.is(err.message, '{{query.calendarUuid}} must be defined in [events] request');
     t.end();
@@ -229,7 +269,7 @@ test.cb('error validation of retrieving community events => startDate not provid
     calendarUuid: '5dd83cd6-d3a5-4fb3-89cd-1e2c04e52250',
   };
 
-  service.events(query, {/* options */}, (err) => {
+  service.events(query, { /* options */ }, (err) => {
     t.is(err.httpStatus, 404);
     t.is(err.message, '{{query.startDate}} or {{query.endDate}} must be defined in [events] request');
     t.end();
@@ -246,7 +286,7 @@ test.cb('error validation of retrieving community events => not valid calendarUu
     startDate: '2017-01-04T20:32:31.171Z',
   };
 
-  service.events(query, {/* options */}, (err) => {
+  service.events(query, { /* options */ }, (err) => {
     t.is(err.httpStatus, 404);
     t.is(err.message, 'received response with unexpected status code');
     t.end();
@@ -263,7 +303,7 @@ test.cb('error validation of retrieving community events => not valid startDate 
     startDate: 'wrong date',
   };
 
-  service.events(query, {/* options */}, (err) => {
+  service.events(query, { /* options */ }, (err) => {
     t.true(err.message.includes('Invalid value specified for URL parameter startDate'));
     t.is(err.httpStatus, 400);
     t.end();
@@ -275,10 +315,7 @@ test.cb('error validation of retrieving community attendees => eventInstUuid not
     service,
   } = t.context;
 
-  const query = {
-  };
-
-  service.attendees(query, {/* options */}, (err) => {
+  service.attendees({/* query */}, { /* options */ }, (err) => {
     t.is(err.httpStatus, 404);
     t.is(err.message, '{{query.eventInstUuid}} must be defined in [events] request');
     t.end();
@@ -316,6 +353,34 @@ test.cb('error validation of retrieving community event attendees => wrong authT
   service.attendees(query, { authType }, (err) => {
     t.is(err.httpStatus, 404);
     t.true(err.message.includes(authType));
+    t.end();
+  });
+});
+
+test.cb('error validation of retrieving community event instance => wrong eventInstUui provided', (t) => {
+  const {
+    service,
+  } = t.context;
+
+  const query = {
+    eventInstUuid: 'wrong eventInstUuid',
+  };
+
+  service.event(query, {}, (err) => {
+    t.is(err.httpStatus, 404);
+    t.is(err.message, 'received response with unexpected status code');
+    t.end();
+  });
+});
+
+test.cb('error validation of retrieving community event instance => no eventInstUui provided', (t) => {
+  const {
+    service,
+  } = t.context;
+
+  service.event({/* query */}, {/* options */}, (err) => {
+    t.is(err.httpStatus, 404);
+    t.is(err.message, '{{query.eventInstUuid}} must be defined in [event] request');
     t.end();
   });
 });
