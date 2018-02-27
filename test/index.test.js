@@ -85,8 +85,10 @@ test.cb('validate retrieving community events => calendarUuid & startDate provid
     startDate: '2017-01-04T20:32:31.171Z',
   };
 
-  service.events(query, {}, (err, events) => {
+  service.events(query, {}, (err, results) => {
     t.ifError(err);
+    const { totalResults, entries: events } = results;
+    t.is(totalResults, 32);
     t.true(_.isArray(events));
 
     events.forEach((event, i) => {
@@ -124,8 +126,11 @@ test.cb('validate retrieving community events => calendarUuid & startDate & autT
     startDate: '2017-01-04T20:32:31.171Z',
   };
 
-  service.events(query, { authType: 'oauth' }, (err, events) => {
+  service.events(query, { authType: 'oauth' }, (err, results) => {
     t.ifError(err);
+    const { totalResults, entries: events } = results;
+
+    t.is(totalResults, 32);
     t.true(_.isArray(events));
     events.forEach((event, i) => {
       firstLvlProps.forEach(prop => t.true(prop in event, `[${prop}] should be a member of events[${i}]`));
@@ -197,8 +202,11 @@ test.cb('validate retrieving events attendees => eventInstUuid provided', (t) =>
     eventInstUuid: '2c688d78-5a78-42b2-a2dd-bd5f5493fdc2',
   };
 
-  service.attendees(query, { /* options */ }, (err, attendees) => {
+  service.attendees(query, { /* options */ }, (err, results) => {
     t.ifError(err);
+
+    const { totalResults, entries: attendees } = results;
+    t.is(totalResults, 1);
     t.true(_.isArray(attendees));
 
     attendees.forEach((attendee, i) => {
@@ -225,8 +233,10 @@ test.cb('validate retrieving events attendees => eventInstUuid & authType provid
     eventInstUuid: '2c688d78-5a78-42b2-a2dd-bd5f5493fdc2',
   };
 
-  service.attendees(query, { authType: 'oauth' }, (err, attendees) => {
+  service.attendees(query, { authType: 'oauth' }, (err, results) => {
     t.ifError(err);
+    const { totalResults, entries: attendees } = results;
+    t.is(totalResults, 1);
     t.true(_.isArray(attendees));
 
     attendees.forEach((attendee, i) => {
